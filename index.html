@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpeedDemon</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+
+  	<!-- Logo And Name -->
+  	<div class="container-fluid">
+		<div class="row jumbotron logoAndName">
+			<div class="col-xs-3"> 
+				<!-- 12 columns fill up everything. Any less does not fill up whole page (this is talkin bout width, width of whole page = 12 columns) -->
+				<img src="img/broom.png" class="broom">
+			</div>
+			<div class="col-xs-3"> 
+				<h3 class="logo">Speed Demon</h3>  
+			</div>
+		</div>
+	</div>
+
+
+	<!-- List of Online Victims -->
+	<ul class="victims">
+		<li class="victim">
+			<a class="victim-link" href="#">User 1</a>
+		</li>
+		<li class="victim">
+			<a class="victim-link" href="#">User 2</a>
+		</li>
+		<li class="victim">
+			<a class="victim-link" href="#">User 3</a>
+		</li>
+	</ul>
+
+
+	<!-- Adding Blacklisted Site -->
+	<h4>Add Site to Blacklist Here</h4>
+	<input type="text" class="form-control blacklist" placeholder="URL">
+	<button class="btn btn-default" type="button">Add Site</button>
+
+
+
+	<!-- Spacing things Out -->
+	<hr class="my-4">
+
+
+
+	<!-- Attack User With Phish or JS -->
+ 	<h5>Enter User ID to Attack by Phishing or JS Injection</h5>
+
+
+    
+  </body>
+</html>

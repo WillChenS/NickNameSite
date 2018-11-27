@@ -1,0 +1,64 @@
+
+body {
+    background-color: white;
+    padding: 1rem;
+}
+
+
+
+/* Logo And Name */
+.logo {
+	color: blue;
+	font-size: 40px;
+	/*max-width: 1rem;
+	max-height: 1rem;*/
+	position: center;
+}
+
+.broom {
+	max-width: 10rem;
+	max-height: 10rem;
+}
+
+.logoAndName {
+	padding: .8rem;
+}
+
+.jumbotron {
+	background-color: white;
+	border-width: 100px;
+	border-color: black;
+}
+
+.row {
+	border-width: 100px;
+	border-color: black;
+}
+
+
+
+/* List of Online Victims */
+
+
+
+
+/* Adding Blacklisted Site */
+.blacklist {
+	max-width: 500px;
+}
+
+
+
+/* Attack User With Phish or JS */
+
+
+
+
+
+/* Media Queries. Used to resize things based on size of viewing window. */
+
+/*@media (max-width: 800px) {
+	.broom {
+   	 	max-width: 1rem;
+   	}
+}*/
