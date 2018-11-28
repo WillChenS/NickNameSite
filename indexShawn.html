@@ -6,7 +6,11 @@
     <title>SpeedDemon</title>
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"> 
 	<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-	<link href="style1.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   </head>
 
   
@@ -25,7 +29,6 @@
 		</ul>
 	</nav>
 
-	<!-- Logo And Name -->
 	<div class = "jumbotron">
 		<h1 class = "display-4">NickName Console</h1>
 		<p class = "lead">
@@ -35,78 +38,98 @@
 		<p>Note: We are not responsible for any privacy breaches, as all permissions have been given by users of our application to access their data.</p>
 	</div>  
 
-	<div class = "ml-5">
-
 	<div id = "userSection">
-	<!-- List of Online Victims -->
-	<h4>User IDs (Click an ID for more info on the user.)</h4>
+	
+		<div class="container-fluid">
+			<h3>All Users</h3>
+			<p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+			<div id="accordion">
+				<div class="card">
+				<div class="card-header">
+					<a class="card-link" data-toggle="collapse" href="#collapseOne">
+					Collapsible Group Item #1
+					</a>
+				</div>
+				<div id="collapseOne" class="collapse" data-parent="#accordion">
+					<div class="card-body">
+					User info user info user info soiadjf ;osa;do invoiandvodsanondv;asd;vjajsdviajds;oijaodsjvojsadovjoisdjv;oajovdhj;oiahcsovhz;ohxchvozxhcohv;osadvhohdsa;ovhdsv
+					</div>
+				</div>
+				</div>
+				<div class="card">
+				<div class="card-header">
+					<a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+					Collapsible Group Item #2
+				</a>
+				</div>
+				<div id="collapseTwo" class="collapse" data-parent="#accordion">
+					<div class="card-body">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+				</div>
+				</div>
+				<div class="card">
+				<div class="card-header">
+					<a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+					Collapsible Group Item #3
+					</a>
+				</div>
+				<div id="collapseThree" class="collapse" data-parent="#accordion">
+					<div class="card-body">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					</div>
+				</div>
+				</div>
 
-	<script>
-        window.userCount = 0;   // Declare a global variable
-        //This global var is used to give each new user added a different id
-    </script>
 
-	<table class = "table">
-		<thead>
-			<tr>
-				<th scope="col">ID</th>
-				<th scope="col">Status</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
+				<!-- History Stuff -->
 				<script>
-	        		userCount++;
-	        		//Change count each time a new user is added
-	        	</script>
-	        	<td><a id=0 class="user-link" href="infoPageShawn.html" onclick="idClick(this.id)" ></a></td>
-	        	<script>
-					var id = Math.floor((Math.random() * 10000) + 1); 
-					//Random val for now, later will be an unknown val received from server
+					var rand1 = Math.floor((Math.random() * 10000) + 1);
+					rand1 = rand1.toString();
+					var rand2 = Math.floor((Math.random() * 10000) + 1);
+					rand2 = rand2.toString();
+					var rand3 = Math.floor((Math.random() * 10000) + 1);
+					rand3 = rand3.toString();
 
-					document.getElementById(0).innerHTML = id; //Display the user id
-					document.getElementById(0).id = userCount; //set the link's id to current count value  
+					var historyArray = [rand1, rand2, rand3];
+
 				</script>
-				<td>Online</td>
-			</tr>
-			<tr>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="generateHistoryTables('collapseOne', historyArray)">Test</button>
+
 				<script>
-	        		userCount++;
-	        		//Change count each time a new user is added
-	        	</script>
-	        	<td><a id=0 class="user-link" href="infoPageShawn.html" onclick="idClick(this.id)" ></a></td>
-	        	<script>
-					var id = Math.floor((Math.random() * 10000) + 1); 
-					//Random val for now, later will be an unknown val received from server
+					function fillHistory(index, historyArray){
 
-					document.getElementById(0).innerHTML = id; //Display the user id
-					document.getElementById(0).id = userCount; //set the link's id to current count value  
-				</script>
-				<td>Online</td>
-			</tr>
-			<tr>
-				<script>
-	        		userCount++;
-	        		//Change count each time a new user is added
-	        	</script>
-	        	<td><a id=0 class="user-link" href="infoPageShawn.html" onclick="idClick(this.id)" ></a></td>
-	        	<script>
-					var id = Math.floor((Math.random() * 10000) + 1); 
-					//Random val for now, later will be an unknown val received from server
+						var table = document.createElement("table");
+						/*var header = table.createTHead();
+						var row = header.insertRow(0);
+						var cell = row.insertCell(0);
+						cell.innerHTML = "<b>History</b>";*/
 
-					document.getElementById(0).innerHTML = id; //Display the user id
-					document.getElementById(0).id = userCount; //set the link's id to current count value  
+						for (var i = 0; i < historyArray.length; i++) {
+							var aRow = document.createElement('tr');
+							var idCol = document.createTextNode(historyArray[i]);
+							table.appendChild(aRow);
+							aRow.appendChild(idCol);
+						}
+
+						var addTo = document.getElementById(index);
+						addTo.appendChild(table);
+
+					}
 				</script>
-				<td>Online</td>
-			</tr>
-		</tbody>
-	</table>
+
+
+			</div>
+		</div>
+
+
 	</div>	
-	<!-- Spacing things Out -->
-	<br>
+
+	<br><br>
+
+	<div class = "ml-3">
 
 
-	<!-- Adding Blacklisted Site -->
 	<div id = "blackListSection">
 	<h4>Add Site to Blacklist Here</h4>
 	<input type="text" class="form-control blacklist" placeholder="URL">
@@ -135,12 +158,32 @@
 			localStorage.setItem("id", document.getElementById(count).innerHTML);
 		}
 	</script>
+
+	<script>
+		var jsonPackage = {type: statusRequest};
+		ws.send(JSON.stringify(jsonPackage));
+		ws.onmessage = function(e){
+			if(e.type == "status"){
+				object = JSON.parse(e.data);
+				var ids = object.ids;
+				var statusArray = object.statuses;
+				var table = document.getElementById(statusTable);
+				for(i = 0; i < ids.length; i++){
+					var aRow = document.createElement('tr');
+					var idCol = document.createTextNode(ids[i]);
+					var statusCol = document.createTextNode(statusArray[i]);
+					idCol.setAttribute('href', "infoPage.html");
+					table.appendChild(aRow);
+					aRow.appendChild(idCol);
+					aRow.appendChild(statusCol);
+				}
+			}	
+		}
+	</script>
 	
 	</div>
 	</div>
 	</div>
-
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </body>
 
 </html>
