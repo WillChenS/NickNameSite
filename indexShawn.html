@@ -11,7 +11,19 @@
 
   
 
-  <body>
+  <body data-spy = "scroll" data-target=".navbar">
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+		<a class="navbar-brand" href="#">NickName123</a>
+		<ul class = "navbar-nav">
+			<li class="nav-item">
+				<a class="nav-link" href="#userSection">Users</a>
+			</li>
+			<li class = "nav-item">
+				<a class="nav-link" href="#blackListSection">Blacklist</a>
+			</li>
+		</ul>
+	</nav>
 
 	<!-- Logo And Name -->
 	<div class = "jumbotron">
@@ -25,7 +37,7 @@
 
 	<div class = "ml-5">
 
-
+	<div id = "userSection">
 	<!-- List of Online Victims -->
 	<h4>User IDs (Click an ID for more info on the user.)</h4>
 
@@ -88,12 +100,14 @@
 				<td>Online</td>
 			</tr>
 		</tbody>
-	</table>	
+	</table>
+	</div>	
 	<!-- Spacing things Out -->
 	<br>
 
 
 	<!-- Adding Blacklisted Site -->
+	<div id = "blackListSection">
 	<h4>Add Site to Blacklist Here</h4>
 	<input type="text" class="form-control blacklist" placeholder="URL">
 	<button class="btn btn-primary" type="button" onclick="blackList()">Add Site</button>
@@ -113,6 +127,7 @@
 	        var jsonPackage = {id: 0, type:'list', addString: URL};
 	        ws.send(JSON.stringify(jsonPackage));
 	    }
+		window.addEventListener("hashchange", function() { scrollBy(0, -70) });
 	</script>
 
 	<script>
@@ -123,6 +138,9 @@
 	
 	</div>
 	</div>
+	</div>
+
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </body>
 
 </html>
