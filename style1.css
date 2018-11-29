@@ -1,5 +1,22 @@
+.invisCard {
+	display: none;
+}
 
+.invisCardHeader {
+	display: none;
+}
 
+.invisCardLink {
+	display: none;
+}
+
+.invisCardCollapse {
+	display: none;
+}
+
+.invisCardBody {
+	display: none;
+}
 
 
 
