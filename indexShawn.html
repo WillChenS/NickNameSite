@@ -43,133 +43,50 @@
 			<h3>All Users</h3>
 			<p><strong>Note:</strong> The <strong>data-parent</strong> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
 			<div id="accordion">
-				<div id="invisCard" class="card">
-					<div id="invisCardHeader" class="card-header">
-						<a id="invisCardLink" class="card-link" data-toggle="collapse" href="#invisCardCollapse">
+				<div id="infoCard" class="card">
+					<div id="infoCardHeader" class="card-header">
+						<a id="infoCardLink" class="card-link" data-toggle="collapse" href="#infoCardCollapse">Info
 						</a>
 					</div>
-					<div id="invisCardCollapse" class="collapse" data-parent="#accordion">
-						<div id="invisCardBody" class="card-body">
+					<div id="infoCardCollapse" class="collapse" data-parent="#accordion">
+						<div id="infoCardBody" class="card-body">Click an ID to view its cookies, login details. and history.
 						</div>
 					</div>
 				</div>
-				<!-- <div class="card">
-				<div class="card-header">
-					<a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-					Collapsible Group Item #2
-				</a>
-				</div>
-				<div id="collapseTwo" class="collapse" data-parent="#accordion">
-					<div class="card-body">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</div>
-				</div>
-				</div>
-				<div class="card">
-				<div class="card-header">
-					<a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-					Collapsible Group Item #3
-					</a>
-				</div>
-				<div id="collapseThree" class="collapse" data-parent="#accordion">
-					<div class="card-body">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-					</div>
-				</div> 
-				</div> -->
+	
 
 				<!-- Add Accordion Cards -->
 				<script>
 					window.userCount = 0;   // Declare a global variable
 			        //This global var is used to give each new user card added a different id
 
-			        //hide the accordion element that is being cloned
-			        /*document.getElementById("invisCard").style.display = "none";
-			        document.getElementById("invisCardHeader").style.display = "none";
-			        document.getElementById("invisCardLink").style.display = "none";
-			        document.getElementById("invisCardCollapse").style.display = "none";*/
-			       //document.getElementById("invisCardBody").style.display = "none";
-
    					function makeCard(id) {
    						userCount++;
-	        			//Change count each time a new user is added
-	        	
-			        	/*<td><a id=0 class="user-link" href="infoPageShawn.html" onclick="idClick(this.id)" ></a></td>
-			        	<div class="card-header">
-							<a class="card-link" data-toggle="collapse" href="#collapseOne">
-							Collapsible Group Item #1
-							</a>
-						</div>
-						<div id="collapseOne" class="collapse" data-parent="#accordion">
-							<div class="card-body">
-							User info user info user info soiadjf ;osa;do invoiandvodsanondv;asd;vjajsdviajds;oijaodsjvojsadovjoisdjv;oajovdhj;oiahcsovhz;ohxchvozxhcohv;osadvhohdsa;ovhdsv
-							</div>
-						</div>*/
-
-						//Create a card. 
-						/*var card = document.createElement("card");
-						var header = document.createElement("card-header");
-						var userId = document.createTextNode(id);
-						header.appendChild(userId);
-						//Make it collapsible
-						var collapser = document.createElement("collapse");
-						collapser.data = "#accordion";
-						//Make body
-						var cardBody = document.createElement("card-body");
-						//gets filled by other functions
-						collapser.appendChild(cardBody);
-						header.appendChild(collapser);
-						//add to the accordion
-						var addTo = document.getElementById("accordion");
-						addTo.appendChild(header);*/
-
-						/*var cardInvis = document.getElementById("invisCard");
-						var card = cardInvis.cloneNode(false);
-						var cardHeaderInvis = document.getElementById("invisCardHeader");
-						var cardHeader = cardHeaderInvis.cloneNode(false);
-						var cardLinkInvis = document.getElementById("invisCardLink");
-						var cardLink = cardInvis.cloneNode(false);
-						var cardCollapseInvis = document.getElementById("invisCardCollapse");
-						var cardCollapse = cardHeaderInvis.cloneNode(false);
-						var cardBodyInvis = document.getElementById("invisCardBody");
-						var cardBody = cardInvis.cloneNode(false);
-
-						card.id = userCount;
-						var userId = document.createTextNode(id);
-						cardLink.innerHTML = userId;
-						//innerHTML of cardBody must be filled by the other functions
-
-						//connect
-						card.appendChild(cardHeader);
-						cardHeader.appendChild(cardLink);
-						card.appendChild(cardCollapse);
-						cardCollapse.appendChild(cardBody);
-
-						var addTo = document.getElementById("accordion");
-						addTo.appendChild(card);*/
-
-						var cardInvis = document.getElementById("invisCard");
-						var card = cardInvis.cloneNode(true);
-						card.id = userCount;
+	        			
+						var cardInfo = document.getElementById("infoCard");
+						var card = cardInfo.cloneNode(true);
+						//Clones info card to be turned into a user card
+						card.id = userCount; //gives card a unique id
 
 						var header = card.children[0];
 						var link = header.children[0];
 						link.innerHTML = id;
-						link.id = "link" + userCount;
-						var userCountString = userCount.toString();
-						//link.href = hrefString;
-						link.href = "#id" + userCountString;
-						//link.href = "#1";
+						link.id = "link" + userCount; //prepends "link" to id so it's diff than card id
+
+						link.href = "#collapse" + userCount;
+						//href can't begin with a number 
 
 						var collapse = card.children[1];
-						//collapse.id = userCountString;
-						collapse.id = "id" + userCountString;
+						collapse.id = "collapse" + userCount;
 
-	
+						var body = collapse.children[0];
+						body.id = "body" + userCount;
+						body.innerHTML = "";
+						//body will be filled in by other functions
 
+						//add new card to accordion
 						var addTo = document.getElementById("accordion");
 						addTo.appendChild(card);
-
    					}
    				</script>
 
@@ -193,7 +110,7 @@
 
    				
 
-				<!-- History Stuff -->
+				<!-- Add User Info -->
 				<script>
 					var rand1 = Math.floor((Math.random() * 10000) + 1);
 					rand1 = rand1.toString();
@@ -205,7 +122,7 @@
 					var historyArray = [rand1, rand2, rand3];
 
 				</script>
-				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory('collapseOne', historyArray)">Test fillHistory</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory('collapse1', historyArray)">Test fillHistory</button>
 
 				<script>
 					function fillHistory(index, historyArray){
