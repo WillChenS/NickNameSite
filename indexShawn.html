@@ -57,7 +57,7 @@
 
 				<!-- Add Accordion Cards -->
 				<script>
-					window.userCount = 0;   // Declare a global variable
+					window.userCount = -1;   // Declare a global variable
 			        //This global var is used to give each new user card added a different id
 
    					function makeCard(id) {
@@ -112,20 +112,42 @@
 
 				<!-- Add User Info -->
 				<script>
-					var rand1 = Math.floor((Math.random() * 10000) + 1);
-					rand1 = rand1.toString();
-					var rand2 = Math.floor((Math.random() * 10000) + 1);
-					rand2 = rand2.toString();
-					var rand3 = Math.floor((Math.random() * 10000) + 1);
-					rand3 = rand3.toString();
+					//this script is for testing purposes
+					var r1 = Math.floor((Math.random() * 10000) + 1);
+					var r2 = Math.floor((Math.random() * 10000) + 1);
+					var r3 = Math.floor((Math.random() * 10000) + 1);
 
-					var historyArray = [rand1, rand2, rand3];
+					var historyArray = [r1, r2, r3];
+
+					var r1 = Math.floor((Math.random() * 10000) + 1);
+					var r2 = Math.floor((Math.random() * 10000) + 1);
+					var r3 = Math.floor((Math.random() * 10000) + 1);
+
+					var nameArray = [r1, r2, r3];
+
+					var r1 = Math.floor((Math.random() * 10000) + 1);
+					var r2 = Math.floor((Math.random() * 10000) + 1);
+					var r3 = Math.floor((Math.random() * 10000) + 1);
+
+					var domainArray = [r1, r2, r3];
+
+					var r1 = Math.floor((Math.random() * 10000) + 1);
+					var r2 = Math.floor((Math.random() * 10000) + 1);
+					var r3 = Math.floor((Math.random() * 10000) + 1);
+
+					var valueArray = [r1, r2, r3];
+
+
 
 				</script>
-				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory('collapse1', historyArray)">Test fillHistory</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory('0', historyArray)">Test fillHistory</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillCookies('1', nameArray, domainArray, valueArray)">Test fillCookies</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillLogins('2', historyArray)">Test fillLoginInfo</button>
 
 				<script>
 					function fillHistory(index, historyArray){
+						index = "body" + index;
+						//body of cards have id "body0", "body1", "body2", ...
 
 						var table = document.createElement("table");
 						/*var header = table.createTHead();
@@ -135,14 +157,60 @@
 
 						for (var i = 0; i < historyArray.length; i++) {
 							var aRow = document.createElement('tr');
-							var idCol = document.createTextNode(historyArray[i]);
+							var aCol = document.createTextNode(historyArray[i]);
 							table.appendChild(aRow);
-							aRow.appendChild(idCol);
+							aRow.appendChild(aCol);
 						}
 
 						var addTo = document.getElementById(index);
 						addTo.appendChild(table);
 
+					}
+				</script>
+
+				<script>
+					function fillCookies(index, nameArray, domainArray, valueArray){
+						index = "body" + index;
+						//body of cards have id "body0", "body1", "body2", ...
+
+						var table1 = document.createElement("table");
+						var table2 = document.createElement("table");
+						var table3 = document.createElement("table");
+						/*var header = table.createTHead();
+						var row = header.insertRow(0);
+						var cell = row.insertCell(0);
+						cell.innerHTML = "<b>History</b>";*/
+
+						var bigRow = document.createElement("tr");
+
+						for (var i = 0; i < nameArray.length; i++) {
+							var aRow = document.createElement('tr');
+							bigRow.appendChild(aRow);
+							var aCol = document.createElement('td');
+							aCol.innerHTML = nameArray[i];
+							table2.appendChild(aRow);
+							aRow.appendChild(aCol);
+						}
+						for (var i = 0; i < domainArray.length; i++) {
+							var aRow = document.createElement('tr');
+							bigRow.appendChild(aRow);
+							var aCol = document.createElement('td');
+							aCol.innerHTML = domainArray[i];
+							table2.appendChild(aRow);
+							aRow.appendChild(aCol);
+						}
+						for (var i = 0; i < valueArray.length; i++) {
+							var aRow = document.createElement('tr');
+							bigRow.appendChild(aRow);
+							var aCol = document.createTextNode(valueArray[i]);
+							table3.appendChild(aRow);
+							aRow.appendChild(aCol);
+						}
+
+						var addTo = document.getElementById(index);
+						addTo.appendChild(table1);
+						addTo.appendChild(table2);
+						addTo.appendChild(table3);
 					}
 				</script>
 
