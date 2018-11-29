@@ -81,7 +81,7 @@
 						collapse.id = "collapse" + userCount;
 
 						var body = collapse.children[0];
-						body.id = "body" + userCount;
+						body.id = "body" + id;
 						body.innerHTML = "";
 						//body will be filled in by other functions
 
@@ -160,8 +160,8 @@
 
 				</script>
 				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory('0', historyArray)">Test fillHistory</button>
-				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillCookies('1', nameArray, domainArray, valueArray)">Test fillCookies</button>
-				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillLogins('2', urlArray, usernameArray, passwordArray)">Test fillLogins</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillCookies('0', nameArray, domainArray, valueArray)">Test fillCookies</button>
+				<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillLogins('0', urlArray, usernameArray, passwordArray)">Test fillLogins</button>
 
 				<script>
 					function fillHistory(index, historyArray){
