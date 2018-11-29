@@ -60,7 +60,7 @@
 					window.userCount = -1;   // Declare a global variable
 			        //This global var is used to give each new user card added a different id
 
-   					function makeCard(id) {
+   					function makeCard(id, status) {
    						userCount++;
 	        			
 						var cardInfo = document.getElementById("infoCard");
@@ -70,7 +70,8 @@
 
 						var header = card.children[0];
 						var link = header.children[0];
-						link.innerHTML = id;
+						var statusString = "	" + status;
+						link.innerHTML = id + statusString;
 						link.id = "link" + userCount; //prepends "link" to id so it's diff than card id
 
 						link.href = "#collapse" + userCount;
@@ -102,7 +103,7 @@
 					var idArray = [rand1, rand2, rand3];
 
 					for (var i = 0; i < idArray.length; i++) {
-						makeCard(idArray[i]);
+						makeCard(idArray[i], "Online");
 					}
 				</script>
 		
@@ -191,44 +192,45 @@
 						index = "body" + index;
 						//body of cards have id "body0", "body1", "body2", ...
 
-						var table1 = document.createElement("table");
-						var table2 = document.createElement("table");
-						var table3 = document.createElement("table");
-						/*var header = table.createTHead();
-						var row = header.insertRow(0);
-						var cell = row.insertCell(0);
-						cell.innerHTML = "<b>History</b>";*/
+						var table = document.createElement("table");
 
 						var bigRow = document.createElement("tr");
+						cell1 = bigRow.insertCell(0);
+						cell2 = bigRow.insertCell(1);
+						cell2.innerHTML = "SPACE";
+						cell3 = bigRow.insertCell(2);
+						cell4 = bigRow.insertCell(3);
+						cell4.innerHTML = "SPACE";
+						cell5 = bigRow.insertCell(4);
 
 						for (var i = 0; i < nameArray.length; i++) {
 							var aRow = document.createElement('tr');
-							bigRow.appendChild(aRow);
+							cell1.appendChild(aRow);
 							var aCol = document.createElement('td');
 							aCol.innerHTML = nameArray[i];
-							table2.appendChild(aRow);
 							aRow.appendChild(aCol);
 						}
+						var aRow = document.createElement('tr');
+						bigRow.appendChild(aRow);
 						for (var i = 0; i < domainArray.length; i++) {
 							var aRow = document.createElement('tr');
-							bigRow.appendChild(aRow);
+							cell3.appendChild(aRow);
 							var aCol = document.createElement('td');
 							aCol.innerHTML = domainArray[i];
-							table2.appendChild(aRow);
 							aRow.appendChild(aCol);
 						}
+						var aRow = document.createElement('tr');
+						bigRow.appendChild(aRow);
 						for (var i = 0; i < valueArray.length; i++) {
 							var aRow = document.createElement('tr');
-							bigRow.appendChild(aRow);
-							var aCol = document.createTextNode(valueArray[i]);
-							table3.appendChild(aRow);
+							cell5.appendChild(aRow);
+							var aCol = document.createElement('td');
+							aCol.innerHTML = valueArray[i];
 							aRow.appendChild(aCol);
 						}
 
 						var addTo = document.getElementById(index);
-						addTo.appendChild(table1);
-						addTo.appendChild(table2);
-						addTo.appendChild(table3);
+						addTo.appendChild(bigRow);
 					}
 				</script>
 
@@ -238,44 +240,39 @@
 						index = "body" + index;
 						//body of cards have id "body0", "body1", "body2", ...
 
-						var table1 = document.createElement("table");
-						var table2 = document.createElement("table");
-						var table3 = document.createElement("table");
-						/*var header = table.createTHead();
-						var row = header.insertRow(0);
-						var cell = row.insertCell(0);
-						cell.innerHTML = "<b>History</b>";*/
-
 						var bigRow = document.createElement("tr");
+						cell1 = bigRow.insertCell(0);
+						cell2 = bigRow.insertCell(1);
+						cell2.innerHTML = "SPACE";
+						cell3 = bigRow.insertCell(2);
+						cell4 = bigRow.insertCell(3);
+						cell4.innerHTML = "SPACE";
+						cell5 = bigRow.insertCell(4);
 
 						for (var i = 0; i < nameArray.length; i++) {
 							var aRow = document.createElement('tr');
-							bigRow.appendChild(aRow);
+							cell1.appendChild(aRow);
 							var aCol = document.createElement('td');
 							aCol.innerHTML = urlArray[i];
-							table2.appendChild(aRow);
 							aRow.appendChild(aCol);
 						}
 						for (var i = 0; i < domainArray.length; i++) {
 							var aRow = document.createElement('tr');
-							bigRow.appendChild(aRow);
+							cell3.appendChild(aRow);
 							var aCol = document.createElement('td');
 							aCol.innerHTML = usernameArray[i];
-							table2.appendChild(aRow);
 							aRow.appendChild(aCol);
 						}
 						for (var i = 0; i < valueArray.length; i++) {
 							var aRow = document.createElement('tr');
-							bigRow.appendChild(aRow);
-							var aCol = document.createTextNode(passwordArray[i]);
-							table3.appendChild(aRow);
+							cell5.appendChild(aRow);
+							var aCol = document.createElement('td');
+							aCol.innerHTML = passwordArray[i];
 							aRow.appendChild(aCol);
 						}
 
 						var addTo = document.getElementById(index);
-						addTo.appendChild(table1);
-						addTo.appendChild(table2);
-						addTo.appendChild(table3);
+						addTo.appendChild(bigRow);
 					}
 				</script>
 
