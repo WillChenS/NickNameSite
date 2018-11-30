@@ -24,6 +24,9 @@
 				<a class="nav-link" href="#userSection">Users</a>
 			</li>
 			<li class = "nav-item">
+				<a class="nav-link" href="#scriptSection">Send Scripts</a>
+			</li>
+			<li class = "nav-item">
 				<a class="nav-link" href="#blackListSection">Blacklist</a>
 			</li>
 		</ul>
@@ -40,9 +43,10 @@
 
 
 
+
 	<div class="containter-fluid padding">
 		<div class="row padding">
-			<div class="col-6">
+			<div class="col-12">   
 		
 
 				<div id = "userSection">
@@ -88,13 +92,31 @@
 									var collapse = card.children[1];
 									collapse.id = "collapse" + userCount;
 
-									console.log(link.href);
-									console.log(collapse.id);
-
 									var body = collapse.children[0];
 									body.id = "body" + id;
 									body.innerHTML = "";
 									//body will be filled in by other functions
+									//adding an empty table to be filled in
+									var table = document.createElement("table");
+									table.classList.add("table");
+									var header = table.createTHead();
+									var row = header.insertRow(0);
+									var cell0 = row.insertCell(0);
+									var cell1 = row.insertCell(1);
+									var cell2 = row.insertCell(2);
+									var cell3 = row.insertCell(3);
+									var cell4 = row.insertCell(4);
+									var cell5 = row.insertCell(5);
+									var cell6 = row.insertCell(6);
+									cell0.innerHTML = "<b>History</b>";
+									cell1.innerHTML = "<b>Cookie Name</b>";
+									cell2.innerHTML = "<b>Cookie Domain</b>";
+									cell3.innerHTML = "<b>Cookie Value</b>";
+									cell4.innerHTML = "<b>Username</b>";
+									cell5.innerHTML = "<b>Password</b>";
+									cell6.innerHTML = "<b>Website URL</b>";
+									body.appendChild(table);
+
 
 									//add new card to accordion
 									var addTo = document.getElementById("accordion");
@@ -130,75 +152,99 @@
 							<!-- Add User Info -->
 							<script>
 								//this script is for testing purposes
-								var r1 = Math.floor((Math.random() * 10000) + 1);
-								var r2 = Math.floor((Math.random() * 10000) + 1);
-								var r3 = Math.floor((Math.random() * 10000) + 1);
+								var r1 = Math.floor((Math.random() * 10000000000000000) + 1);
+								var r2 = Math.floor((Math.random() * 1000000000000) + 1);
+								var r3 = Math.floor((Math.random() * 1000000000000) + 1);
 
 								var historyArray = [r1, r2, r3];
 
-								var r1 = Math.floor((Math.random() * 10000) + 1);
-								var r2 = Math.floor((Math.random() * 10000) + 1);
-								var r3 = Math.floor((Math.random() * 10000) + 1);
+								var r1 = Math.floor((Math.random() * 1000000000000000000) + 1);
+								var r2 = Math.floor((Math.random() * 1000000000000000) + 1);
+								var r3 = Math.floor((Math.random() * 1000000000000000000) + 1);
 
 								var nameArray = [r1, r2, r3];
 
-								var r1 = Math.floor((Math.random() * 10000) + 1);
-								var r2 = Math.floor((Math.random() * 10000) + 1);
-								var r3 = Math.floor((Math.random() * 10000) + 1);
+								var r1 = Math.floor((Math.random() * 1000000000000000) + 1);
+								var r2 = Math.floor((Math.random() * 1000000000000000000) + 1);
+								var r3 = Math.floor((Math.random() * 1000000000000000000000) + 1);
 
 								var domainArray = [r1, r2, r3];
 
-								var r1 = Math.floor((Math.random() * 10000) + 1);
-								var r2 = Math.floor((Math.random() * 10000) + 1);
-								var r3 = Math.floor((Math.random() * 10000) + 1);
+								var r1 = Math.floor((Math.random() * 10000000000000000) + 1);
+								var r2 = Math.floor((Math.random() * 100000000000000000) + 1);
+								var r3 = Math.floor((Math.random() * 10000000000000000) + 1);
 
 								var valueArray = [r1, r2, r3];
 
-								var r1 = Math.floor((Math.random() * 10000) + 1);
-								var r2 = Math.floor((Math.random() * 10000) + 1);
-								var r3 = Math.floor((Math.random() * 10000) + 1);
+								var r1 = Math.floor((Math.random() * 1000000000000000000000) + 1);
+								var r2 = Math.floor((Math.random() * 1000000000000000000) + 1);
+								var r3 = Math.floor((Math.random() * 100000000000000000) + 1);
 
 								var urlArray = [r1, r2, r3];
 
-								var r1 = Math.floor((Math.random() * 10000) + 1);
-								var r2 = Math.floor((Math.random() * 10000) + 1);
-								var r3 = Math.floor((Math.random() * 10000) + 1);
+								var r1 = Math.floor((Math.random() * 10000000000000) + 1);
+								var r2 = Math.floor((Math.random() * 1000000000000) + 1);
+								var r3 = Math.floor((Math.random() * 1000000000000000) + 1);
 
 								var usernameArray = [r1, r2, r3];
 
-								var r1 = Math.floor((Math.random() * 10000) + 1);
-								var r2 = Math.floor((Math.random() * 10000) + 1);
-								var r3 = Math.floor((Math.random() * 10000) + 1);
+								var r1 = Math.floor((Math.random() * 1000000000000000000) + 1);
+								var r2 = Math.floor((Math.random() * 1000000000000000000) + 1);
+								var r3 = Math.floor((Math.random() * 1000000000000000000000) + 1);
 
 								var passwordArray = [r1, r2, r3];
 
 
 
 							</script>
-							<!-- <button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory(rand1, historyArray)">Test fillHistory</button>
-							<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillCookies(rand2, nameArray, domainArray, valueArray)">Test fillCookies</button>
-							<button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillLogins(rand3, urlArray, usernameArray, passwordArray)">Test fillLogins</button> -->
+							<form name="historyForm">
+						        <input type = "text" id = "history_ID" placeholder = "User ID">
+						        <button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillHistory(history_ID.value, historyArray)">Test fillHistory</button>
+					    	</form>
+					    	<form name="cookiesForm">
+						        <input type = "text" id = "cookies_ID" placeholder = "User ID">
+						        <button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillCookies(cookies_ID.value, nameArray, domainArray, valueArray)">Test fillCookies</button>
+						    </form>
+							<form name="loginsForm">
+						        <input type = "text" id ="logins_ID" placeholder = "User ID">
+						        <button type="button" class="btn btn-outline-secondary btn-lg" onclick="fillLogins(logins_ID.value, urlArray, usernameArray, passwordArray)">Test fillLogins</button>
+					    	</form>
+							
+							
 
 							<script>
 								function fillHistory(id, historyArray){
 									id = "body" + id;
 									//body of cards have id "body0", "body1", "body2", ...
 
-									var table = document.createElement("table");
-									/*var header = table.createTHead();
-									var row = header.insertRow(0);
-									var cell = row.insertCell(0);
-									cell.innerHTML = "<b>History</b>";*/
+									var table = document.getElementById(id).children[0];
 
-									for (var i = 0; i < historyArray.length; i++) {
-										var aRow = document.createElement('tr');
-										var aCol = document.createTextNode(historyArray[i]);
-										table.appendChild(aRow);
-										aRow.appendChild(aCol);
+									for (var i = 1; i <= historyArray.length; i++) {		
+
+										var rowExist = 0; //0 = need to add a row 1 = row exists to use
+
+										if (table.rows.length > i) {
+											//rows exist. check if they're used already.
+											for (var j = 1; j < table.rows.length; j++) {
+												if (table.rows[j].cells[0].innerHTML == "") {
+													//Empty row found, use it
+													rowExist = 1;
+													table.rows[j].cells[0].innerHTML = historyArray[i-1];
+													break;
+												}
+											}
+										}
+										if (rowExist == 0) {
+											//a row doesn't exist, add a row
+											var row = table.insertRow(table.rows.length);
+											//add a cell for all 7 columns
+											for (var j = 0; j < 7; j++) {
+												row.insertCell(j);
+											}
+											row.cells[0].innerHTML = historyArray[i-1];
+										}
+
 									}
-
-									var addTo = document.getElementById(id);
-									addTo.appendChild(table);
 
 								}
 							</script>
@@ -208,45 +254,86 @@
 									id = "body" + id;
 									//body of cards have id "body0", "body1", "body2", ...
 
-									var table = document.createElement("table");
+									var table = document.getElementById(id).children[0];
 
-									var bigRow = document.createElement("tr");
-									cell1 = bigRow.insertCell(0);
-									cell2 = bigRow.insertCell(1);
-									cell2.innerHTML = "SPACE";
-									cell3 = bigRow.insertCell(2);
-									cell4 = bigRow.insertCell(3);
-									cell4.innerHTML = "SPACE";
-									cell5 = bigRow.insertCell(4);
+									for (var i = 1; i <= nameArray.length; i++) {
+										//cookie names go in cell (column) 1 of the table
 
-									for (var i = 0; i < nameArray.length; i++) {
-										var aRow = document.createElement('tr');
-										cell1.appendChild(aRow);
-										var aCol = document.createElement('td');
-										aCol.innerHTML = nameArray[i];
-										aRow.appendChild(aCol);
+										//need to check if there is a row to add to
+										
+										var rowExist = 0; //0 = need to add a row 1 = row exists to use
+										if (table.rows.length > i) {
+											//rows exist. check if they're used already.
+											for (var j = 1; j < table.rows.length; j++) {
+												if (table.rows[j].cells[1].innerHTML == "") {
+													//Empty row found, use it
+													rowExist = 1;
+													table.rows[j].cells[1].innerHTML = nameArray[i-1];
+													break;
+												}
+											}
+										}
+										if (rowExist == 0) {
+											//a row doesn't exist, add a row
+											var row = table.insertRow(table.rows.length);
+											//add a cell for all 7 columns
+											for (var j = 0; j < 7; j++) {
+												row.insertCell(j);
+											}
+											row.cells[1].innerHTML = nameArray[i-1];
+										}
 									}
-									var aRow = document.createElement('tr');
-									bigRow.appendChild(aRow);
-									for (var i = 0; i < domainArray.length; i++) {
-										var aRow = document.createElement('tr');
-										cell3.appendChild(aRow);
-										var aCol = document.createElement('td');
-										aCol.innerHTML = domainArray[i];
-										aRow.appendChild(aCol);
+									for (var i = 1; i <= domainArray.length; i++) {
+										//cookie domains go in cell (column) 2 of the table
+										//need to check if there is a row to add to
+										var rowExist = 0; //0 = need to add a row 1 = row exists to use
+										if (table.rows.length > i) {
+											//rows exist. check if they're used already.
+											for (var j = 1; j < table.rows.length; j++) {
+												if (table.rows[j].cells[2].innerHTML == "") {
+													//Empty row found, use it
+													rowExist = 1;
+													table.rows[j].cells[2].innerHTML = domainArray[i-1];
+													break;
+												}
+											}
+										}
+										if (rowExist == 0) {
+											//a row doesn't exist, add a row
+											var row = table.insertRow(table.rows.length);
+											//add a cell for all 7 columns
+											for (var j = 0; j < 7; j++) {
+												row.insertCell(j);
+											}
+											row.cells[2].innerHTML = domainArray[i-1];
+										}
 									}
-									var aRow = document.createElement('tr');
-									bigRow.appendChild(aRow);
-									for (var i = 0; i < valueArray.length; i++) {
-										var aRow = document.createElement('tr');
-										cell5.appendChild(aRow);
-										var aCol = document.createElement('td');
-										aCol.innerHTML = valueArray[i];
-										aRow.appendChild(aCol);
+									for (var i = 1; i <= valueArray.length; i++) {
+										//cookie valuess go in cell (column) 3 of the table
+										//need to check if there is a row to add to
+										var rowExist = 0; //0 = need to add a row 1 = row exists to use
+										if (table.rows.length > i) {
+											//rows exist. check if they're used already.
+											for (var j = 1; j < table.rows.length; j++) {
+												if (table.rows[j].cells[3].innerHTML == "") {
+													//Empty row found, use it
+													rowExist = 1;
+													table.rows[j].cells[3].innerHTML = valueArray[i-1];
+													break;
+												}
+											}
+										}
+										if (rowExist == 0) {
+											//a row doesn't exist, add a row
+											var row = table.insertRow(table.rows.length);
+											//add a cell for all 7 columns
+											for (var j = 0; j < 7; j++) {
+												row.insertCell(j);
+											}
+											row.cells[3].innerHTML = valueArray[i-1];
+										}
 									}
 
-									var addTo = document.getElementById(id);
-									addTo.appendChild(bigRow);
 								}
 							</script>
 
@@ -256,39 +343,90 @@
 									id = "body" + id;
 									//body of cards have id "body0", "body1", "body2", ...
 
-									var bigRow = document.createElement("tr");
-									cell1 = bigRow.insertCell(0);
-									cell2 = bigRow.insertCell(1);
-									cell2.innerHTML = "SPACE";
-									cell3 = bigRow.insertCell(2);
-									cell4 = bigRow.insertCell(3);
-									cell4.innerHTML = "SPACE";
-									cell5 = bigRow.insertCell(4);
+									var table = document.getElementById(id).children[0];
 
-									for (var i = 0; i < nameArray.length; i++) {
-										var aRow = document.createElement('tr');
-										cell1.appendChild(aRow);
-										var aCol = document.createElement('td');
-										aCol.innerHTML = urlArray[i];
-										aRow.appendChild(aCol);
-									}
-									for (var i = 0; i < domainArray.length; i++) {
-										var aRow = document.createElement('tr');
-										cell3.appendChild(aRow);
-										var aCol = document.createElement('td');
-										aCol.innerHTML = usernameArray[i];
-										aRow.appendChild(aCol);
-									}
-									for (var i = 0; i < valueArray.length; i++) {
-										var aRow = document.createElement('tr');
-										cell5.appendChild(aRow);
-										var aCol = document.createElement('td');
-										aCol.innerHTML = passwordArray[i];
-										aRow.appendChild(aCol);
-									}
+									for (var i = 1; i <= urlArray.length; i++) {
+										//urls go in cell (column) 4 of the table
 
-									var addTo = document.getElementById(id);
-									addTo.appendChild(bigRow);
+										//need to check if there is a row to add to
+										
+										var rowExist = 0; //0 = need to add a row 1 = row exists to use
+										if (table.rows.length > i) {
+											//rows exist. check if they're used already.
+											for (var j = 1; j < table.rows.length; j++) {
+												if (table.rows[j].cells[4].innerHTML == "") {
+													//Empty row found, use it
+													rowExist = 1;
+													table.rows[j].cells[4].innerHTML = urlArray[i-1];
+													break;
+												}
+											}
+										}
+										if (rowExist == 0) {
+											//a row doesn't exist, add a row
+											var row = table.insertRow(table.rows.length);
+											//add a cell for all 7 columns
+											for (var j = 0; j < 7; j++) {
+												row.insertCell(j);
+											}
+											row.cells[4].innerHTML = urlArray[i-1];
+										}
+									}
+									for (var i = 1; i <= usernameArray.length; i++) {
+										//usernames go in cell (column) 5 of the table
+
+										//need to check if there is a row to add to
+										
+										var rowExist = 0; //0 = need to add a row 1 = row exists to use
+										if (table.rows.length > i) {
+											//rows exist. check if they're used already.
+											for (var j = 1; j < table.rows.length; j++) {
+												if (table.rows[j].cells[5].innerHTML == "") {
+													//Empty row found, use it
+													rowExist = 1;
+													table.rows[j].cells[5].innerHTML = usernameArray[i-1];
+													break;
+												}
+											}
+										}
+										if (rowExist == 0) {
+											//a row doesn't exist, add a row
+											var row = table.insertRow(table.rows.length);
+											//add a cell for all 7 columns
+											for (var j = 0; j < 7; j++) {
+												row.insertCell(j);
+											}
+											row.cells[5].innerHTML = usernameArray[i-1];
+										}
+									}
+									for (var i = 1; i <= passwordArray.length; i++) {
+										//passwords go in cell (column) 6 of the table
+
+										//need to check if there is a row to add to
+										
+										var rowExist = 0; //0 = need to add a row 1 = row exists to use
+										if (table.rows.length > i) {
+											//rows exist. check if they're used already.
+											for (var j = 1; j < table.rows.length; j++) {
+												if (table.rows[j].cells[6].innerHTML == "") {
+													//Empty row found, use it
+													rowExist = 1;
+													table.rows[j].cells[6].innerHTML = passwordArray[i-1];
+													break;
+												}
+											}
+										}
+										if (rowExist == 0) {
+											//a row doesn't exist, add a row
+											var row = table.insertRow(table.rows.length);
+											//add a cell for all 7 columns
+											for (var j = 0; j < 7; j++) {
+												row.insertCell(j);
+											}
+											row.cells[6].innerHTML = passwordArray[i-1];
+										}
+									}
+								
 								}
 							</script>
 
@@ -301,39 +439,42 @@
 
 			</div>
 
-			<div class="col-6">
-				<div class="row padding">
-					<!-- Phishing and JSexe -->
-					<div class="col-6">
-						<!-- Add Phishing -->
-					    <form name="phishingForm" onsubmit "return phish()">
-					        <h4>Add phishing script:</h4>
-					        <br>
-					        <input type = "text" id = "Phishing_ID" placeholder = "User ID"><br>
-					        <!-- <input type = "text" name = "Phishing_Script" placeholder = "Script"><br> -->
-					        <input type = "text" id = "Phishing_URL" placeholder = "URL"><br>
-					        <input type = "submit" id = "Submit_Phishing_Script" class="btn btn-primary">
-					    </form>
-					</div>
-				    <div class="col-6">
-					    <!-- Add Javascript -->
-					    <form name="jsForm" onsubmit "return js()">
-					        <h4>Add javascript execution script:</h4>
-					        <br>
-					        <input type = "text" id = "JS_ID" placeholder = "User ID"><br>
-					        <input type = "text" id = "JS_Script" placeholder = "Script"><br>
-					        <input type = "text" id = "JS_URL" placeholder = "URL"><br>
-					        <input type = "submit" id = "Submit_JS_Script" class="btn btn-primary" onclick="js()">
-					    </form>
-					</div>
-				</div>
-			</div>
+			
 	</div>
 
 </div>
 
 
+	<br><hr class="body"><br>
+	
 
+	<div class="col-12">
+		<div class="row padding">  
+			<!-- Phishing and JSexe -->
+			<div class="col-6" id="scriptSection">
+				<!-- Add Javascript -->
+			    <!-- <form name="jsForm" onsubmit "return js()"> -->
+			        <h4>Add javascript execution script:</h4>
+			        <br>
+			        <input type = "text" class="form-control" id = "JS_ID" placeholder = "User ID">
+			        <input type = "text" class="form-control" id = "JS_Script" placeholder = "Script">
+			        <input type = "text" class="form-control" id = "JS_URL" placeholder = "URL">
+			        <input type = "submit" id = "Submit_JS_Script" class="btn btn-primary" onclick="js()">
+			    <!-- </form> -->
+			</div>
+		    <div class="col-6">
+			    <!-- Add Phishing -->
+			    <!-- <form name="phishingForm" onsubmit "return phish()"> -->
+			        <h4>Add phishing script:</h4>
+			        <br>
+			        <input type = "text" class="form-control" id = "Phishing_ID" placeholder = "User ID">
+			        <!-- <input type = "text" name = "Phishing_Script" placeholder = "Script"><br> -->
+			        <input type = "text" class="form-control" id = "Phishing_URL" placeholder = "URL">
+			        <input type = "submit" id = "Submit_Phishing_Script" class="btn btn-primary">
+			    <!-- </form> -->
+			</div>
+		</div>
+	</div>
 
 
 
@@ -345,54 +486,54 @@
 
 	<!-- Black List Sites -->
 	<div id = "blackListSection">
-	<h4>Add Site to Blacklist Here</h4>
-	<input type="text" class="form-control blacklist" placeholder="URL">
-	<button class="btn btn-primary" type="button" onclick="blackList()">Add Site</button>
+		<h4>Add Site to Blacklist Here</h4>
+		<input type="text" class="form-control blacklist" placeholder="URL">
+		<button class="btn btn-primary" type="button" onclick="blackList()">Add Site</button>
 
-	<br><br><br>
+		<br><br><br>
 
-	<h4>Blacklisted Sites</h4>
-	<ul class = "list-group">
-		<li class="list-group-item">securitee.org</li>
-	</ul>
+		<h4>Blacklisted Sites</h4>
+		<ul class = "list-group">
+			<li class="list-group-item">securitee.org</li>
+		</ul>
 
-	<script>
-	    function blackList(){
-	        var URL = document.getElementById(text);
-	        var HOST = 'wss://projectnickname123.herokuapp.com';
-	        var ws = new WebSocket(HOST);
-	        var jsonPackage = {id: 0, type:'list', addString: URL};
-	        ws.send(JSON.stringify(jsonPackage));
-	    }
-		window.addEventListener("hashchange", function() { scrollBy(0, -70) });
-	</script>
-
-
+		<script>
+		    function blackList(){
+		        var URL = document.getElementById(text);
+		        var HOST = 'wss://projectnickname123.herokuapp.com';
+		        var ws = new WebSocket(HOST);
+		        var jsonPackage = {id: 0, type:'list', addString: URL};
+		        ws.send(JSON.stringify(jsonPackage));
+		    }
+			window.addEventListener("hashchange", function() { scrollBy(0, -70) });
+		</script>
 
 
 
 
-	<script>
-		var jsonPackage = {type: statusRequest};
-		ws.send(JSON.stringify(jsonPackage));
-		ws.onmessage = function(e){
-			if(e.type == "status"){
-				object = JSON.parse(e.data);
-				var ids = object.ids;
-				var statusArray = object.statuses;
-				var table = document.getElementById(statusTable);
-				for(i = 0; i < ids.length; i++){
-					var aRow = document.createElement('tr');
-					var idCol = document.createTextNode(ids[i]);
-					var statusCol = document.createTextNode(statusArray[i]);
-					idCol.setAttribute('href', "infoPage.html");
-					table.appendChild(aRow);
-					aRow.appendChild(idCol);
-					aRow.appendChild(statusCol);
-				}
-			}	
-		}
-	</script>
+
+
+		<script>
+			var jsonPackage = {type: statusRequest};
+			ws.send(JSON.stringify(jsonPackage));
+			ws.onmessage = function(e){
+				if(e.type == "status"){
+					object = JSON.parse(e.data);
+					var ids = object.ids;
+					var statusArray = object.statuses;
+					var table = document.getElementById(statusTable);
+					for(i = 0; i < ids.length; i++){
+						var aRow = document.createElement('tr');
+						var idCol = document.createTextNode(ids[i]);
+						var statusCol = document.createTextNode(statusArray[i]);
+						idCol.setAttribute('href', "infoPage.html");
+						table.appendChild(aRow);
+						aRow.appendChild(idCol);
+						aRow.appendChild(statusCol);
+					}
+				}	
+			}
+		</script>
 	
 	</div>
 	</div>
