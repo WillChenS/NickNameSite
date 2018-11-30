@@ -15,13 +15,28 @@ hr.body {
 }
 
 
-.userSection {
+.container-fluid {
 	max-width: 100%;
+  text-align: center;
+}
+
+.card {
+  text-align: center;
+}
+
+.table {
+  text-align: center;
 }
 
 td {
 	word-break: break-all;
+  text-align: center;
 }
+
+
+
+
+
 
 
 /* Media Queries. Used to resize things based on size of viewing window. */
